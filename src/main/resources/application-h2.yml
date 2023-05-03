@@ -1,0 +1,20 @@
+spring:
+  config:
+    activate:
+      on-profile: h2
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    hikari:
+      driver-class-name: org.h2.Driver
+      username: sa
+      password:
+      jdbc-url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  batch:
+    job:
+      names: ${job.name}
+    initialize-schema: embedded
